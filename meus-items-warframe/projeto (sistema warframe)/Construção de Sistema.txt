@@ -1,0 +1,14 @@
+O site do warframe, deve haver banco de dados
+devemos ter um jeito del igar com warframe market pega o preço medio e o preço barato
+deve ter um banco de dados onde guarda os sets e items primes
+os sets sao contabiliazdos se ha itens completos
+Se o conjunto estiver completo temos 1 set.
+Capacecete
+Chassi
+Sistema = Temos um set
+Diagrama
+Se não estiver completo nao temos set
+Capacete
+Chassi
+Sistema
+(Diagrama faltando) = não temos set
