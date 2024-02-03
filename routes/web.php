@@ -2,17 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','PrincipalController@index')->name('front-index');
+Route::get('/adicionar-item-inventario/{id}','PrincipalController@adicionar')->name('front-adicionar');
+Route::get('/obter-detalhes-de-venda/{id}','PrincipalController@venda')->name('front-venda');
+Route::post('/remover-item-inventario','PrincipalController@remover')->name('front-remover');
+Route::get('/fetch-warframe-market/{platform}/{itemName}', 'WarframeMarketController@fetchWarframeMarketData');

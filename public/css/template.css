@@ -1,0 +1,24 @@
+.sidebar{
+    /* background-color:#006CB0; */
+    background-color:white;
+    width: 66px;
+    height: 100vh;
+    border: 2px solid #80808087;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+.main-page{
+    margin: auto;
+    border-radius: 5px;
+    background-color: white;
+    width: 500px;
+    height: 500px;
+}
+.itens-page{
+    margin: auto;
+    border-radius: 5px;
+    background-color: white;
+    width: 500px;
+    height: 500px;
+}

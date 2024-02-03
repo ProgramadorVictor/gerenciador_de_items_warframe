@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Warframe - Gerenciador de Estoque</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/template.css') }}">     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body style="background-color: gray;">
+    <section class="d-flex">
+        @include('componentes.modal.modal-venda')
+        <div>
+            @include('componentes.sidebar.sidebar')
+        </div>
+        <div class="main-page">
+            <h6 class="text-center fw-bolder p-2">Inventário</h6>
+            @yield('conteudo')
+        </div>
+        <div class="itens-page">
+            <h6 class="text-center fw-bolder p-2">Itens do Jogo</h6>
+            @include('componentes.itens.itens')
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    @yield('scripts')
+</body>
+</html>
