@@ -1,22 +1,46 @@
 @extends('template.template_front')
 @section('conteudo')
-<input type="text" id="inventario" onkeyup="pesquisarInventario()" placeholder="Procurar" class="col-12">
-<table id="tabelaInventario" border="1" class="col-12">
-    <thead>
-        <tr>
-            <th>Item</th>
-            <th>Quantidade</th>
+<style>
+</style>
+<input type="text" id="inventario" onkeyup="pesquisarInventario()" placeholder="Buscar no inventário" class="col-12" style="border: none;">
+<table id="tabelaInventario" class="col-12">
+    <thead class="col-12">
+        <tr class="col-12">
+            <th class="text-sm">IMG</th>
+            <th class="text-sm">NOME</th>
+            <th class="text-sm">ESTOQUE</th>
+            <th class="text-sm">COMPRADO</th>
+            <th class="text-sm">MENOR</th>
+            <th class="text-sm">MÉDIA</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach($estoque as $inventario)
-        <tr>
-            <td class="col-12 d-flex justify-content-between">
-                <span>{{ $inventario['item'] }}</span>
-                <button name="id" value="{{$inventario->id_item}}" onclick="(selecionado({{$inventario->id_item}}))" data-bs-toggle="modal" data-bs-target="#modal-venda">Venda</button>
+        <tr class="">
+            <td class="">
+                IMG
             </td>
-            <td>
-                <span class="d-flex justify-content-end">{{$inventario['quantidade']}}</span>
+            <td class="">
+                <span class="text-sm">{{ $inventario['nome'] }}</span>
+            </td>
+            <td class="">
+                <span>{{$inventario['quantidade']}}</span>
+            </td>
+            <td class="">
+                0
+            </td>
+            <td class="">
+                0
+            </td>
+            <td class="">
+                0
+            </td>
+            <td class="">
+                0
+            </td>
+            <td class="">
+                <button class="btn btn-danger"name="id" value="{{$inventario->id_item}}" onclick="(selecionado({{$inventario->id_item}}))" data-bs-toggle="modal" data-bs-target="#modal-venda">-</button>
             </td>
         </tr>
         @endforeach

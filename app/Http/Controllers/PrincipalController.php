@@ -23,6 +23,7 @@ class PrincipalController extends Controller
         } else {
             $inventario = new InventarioItensModel(); 
             $inventario->id_item = $itens->id;
+            $inventario->nome = $itens->nome;
             $inventario->item = $itens->item;
             $inventario->save();
         }

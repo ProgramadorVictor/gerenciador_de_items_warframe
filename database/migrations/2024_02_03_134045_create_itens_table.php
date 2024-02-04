@@ -15,6 +15,7 @@ class CreateItensTable extends Migration
     {
         Schema::create('itens', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
             $table->string('item');
             $table->integer('conjunto');
             $table->integer('ducats')->default(0);

@@ -10,15 +10,23 @@
 }
 .main-page{
     margin: auto;
-    border-radius: 5px;
     background-color: white;
     width: 500px;
     height: 500px;
 }
 .itens-page{
     margin: auto;
-    border-radius: 5px;
     background-color: white;
     width: 500px;
     height: 500px;
 }
+.text-sm{
+    font-size: 12px;
+}
+.bg-purple{
+    background-color:#07111B;
+}
+/* .bg-black {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-black-rgb),var(--bs-bg-opacity))!important;
+} */

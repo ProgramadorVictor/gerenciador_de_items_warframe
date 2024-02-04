@@ -15,6 +15,7 @@ class CreateInventarioItensTable extends Migration
     {
         Schema::create('inventario_itens', function (Blueprint $table) {
             $table->unsignedBigInteger('id_item');
+            $table->string('nome');
             $table->string('item');
             $table->integer('quantidade')->default(1);
             $table->foreign('id_item')->references('id')->on('itens');
