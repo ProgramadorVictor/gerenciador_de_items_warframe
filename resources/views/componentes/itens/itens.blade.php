@@ -1,27 +1,27 @@
-<input type="text" id="itens" onkeyup="pesquisarItens()" placeholder="Procurar" class="col-12">
-<table id="tabelaItens" border="1" class="col-12">
+<input type="text" id="itens" onkeyup="pesquisarItens()" placeholder="Buscar itens no jogo (Não esta funcionando)" class="col-12 border-0">
+<table id="tabelaItens" border="1" class="col-12 table">
     <thead>
-        <tr>
-            <p>Notes: Fazer fica igual inventario</p>
-            <th>NOME</th>
-            <th>ITEM</th>
-            <th></th>
+        <tr class="d-flex justify-content-around">
+            <th class="col-2 text-sm p-0">IMG</th>
+            <th class="col-3 text-sm p-0">NOME</th>
+            <th class="col-3 text-sm p-0">ITEM</th>
+            <th class="col-4 text-sm p-0">AÇÃO</th>
         </tr>
     </thead>
     <tbody>
         @foreach($itens as $item)
-        <tr>
-            <td>
-                <span>{{ $item->nome }}</span>
-            </td>
-            <td>
-                <span>{{ $item->item }}</span>
-            </td>
-            
-            <td class="col-12 d-flex justify-content-between">
-                <a href="{{route('front-adicionar', $item->id)}}"><button class="btn btn-success">+</button></a>
-            </td>
-        </tr>
+            <tr class="d-flex justify-content-around">
+                <td class="col-2 p-0">NULL</td>
+                <td class="col-3 p-0"><span class="text-sm">{{ $item->nome }}</span></td>
+                <td class="col-3 p-0"><span class="text-sm">{{ $item->item }}</span></td>
+                <td class="col-4 d-flex justify-content-between">
+                    <div class="col-6 m-1">
+                        <button class="btn btn-success rounded-0" data-bs-toggle="modal" data-bs-target="#modal-adicionar-item">ADICIONAR</button>
+                        {{-- <a href="{{route('front-adicionar', $item->id)}}"> --}}
+                        {{-- </a> --}}
+                    </div>
+                </td>
+            </tr>
         @endforeach
     </tbody>
 </table>
@@ -48,48 +48,3 @@
         }
     }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-{{-- <input type="hidden" id="txtPlataforma" name="Plataforma" value="pc">
-<label>Enter Item Name:</label>
-<input type="text" id="txtItem" name="Item" value="mirage_prime_systems">
-<button onclick="fetchWarframeMarketData()">Fetch Data</button>
-<div id="result"></div>
-<script>
-    function fetchWarframeMarketData() {
-        var plataforma = $("#txtPlataforma").val();
-        var item = $("#txtItem").val();
-        $.ajax({
-            url: '/fetch-warframe-market/' + plataforma + '/' + item,
-            type: 'GET',
-            data: { plataforma: plataforma, item: item },
-            success: function(dados) {
-                console.log(dados);
-                
-
-                // window.location.href = dados.url;
-
-                // var vendas = [];
-                // for(var i = 0; i < dados.payload.orders.length; i++){
-                //     if (dados.payload.orders[i].user.status === 'ingame') {
-                //         vendas.push(dados.payload.orders[i]);
-                //     }
-                // }
-                // console.log(vendas[0]);
-            },
-            error: function(error) {
-                console.error(error);
-            }
-        });
-    }
-</script>    --}}

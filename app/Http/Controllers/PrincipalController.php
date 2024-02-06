@@ -35,6 +35,11 @@ class PrincipalController extends Controller
     }
 
     public function remover(Request $req){
+        if($req->quantidade == '0'){
+            $errors = new \Illuminate\Support\MessageBag();
+            $errors->add('quantidade', 'Você não pode realizar uma venda 0 em quantidade.');
+            return redirect()->back()->withErrors($errors)->withInput($req->all());
+        }
         $regras = [
             'quantidade' => 'min:1',
             'preco' => 'min:1',

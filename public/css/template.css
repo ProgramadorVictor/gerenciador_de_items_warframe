@@ -1,5 +1,4 @@
 .sidebar{
-    /* background-color:#006CB0; */
     background-color:white;
     width: 66px;
     height: 100vh;
@@ -11,20 +10,29 @@
 .main-page{
     margin: auto;
     background-color: white;
-    width: 500px;
+    width: 550px;
     height: 500px;
 }
 .itens-page{
     margin: auto;
     background-color: white;
-    width: 500px;
+    width: 550px;
     height: 500px;
 }
 .text-sm{
     font-size: 12px;
 }
-.bg-purple{
+.bg-gray{
     background-color:#07111B;
+}
+.box-shadow{
+    box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.1);
+}
+.box-shadow-sidebar{
+    box-shadow: 5px 0px 0px rgba(0, 0, 0, 0.1);
+}
+.btn-req{
+    background-color: #9BC3B8;
 }
 /* .bg-black {
     --bs-bg-opacity: 1;

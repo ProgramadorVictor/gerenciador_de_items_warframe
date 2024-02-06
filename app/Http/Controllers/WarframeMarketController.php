@@ -19,7 +19,7 @@ class WarframeMarketController extends Controller
         $data = [];
         $filtrar = json_decode($req->getBody(), true);
         foreach($filtrar['payload']['orders'] as $orders){
-            if($orders['user']['status'] == 'ingame'){
+            if($orders['user']['status'] == 'ingame' && $orders['order_type'] == 'sell'){
                 $data[] = $orders;
             }
         }
