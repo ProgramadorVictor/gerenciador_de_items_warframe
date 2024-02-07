@@ -16,9 +16,8 @@
                 <td class="col-3 p-0"><span class="text-sm">{{ $item->item }}</span></td>
                 <td class="col-4 d-flex justify-content-between">
                     <div class="col-6 m-1">
-                        <button class="btn btn-success rounded-0" data-bs-toggle="modal" data-bs-target="#modal-adicionar-item">ADICIONAR</button>
-                        {{-- <a href="{{route('front-adicionar', $item->id)}}"> --}}
-                        {{-- </a> --}}
+                        {{-- <button class="btn btn-success rounded-0" data-bs-toggle="modal" data-bs-target="#modal-adicionar-item">ADC</button> --}}
+                        <a href="{{route('front-adicionar', $item->id)}}">TEM QUE DESATIVAR ESSE E ATIVA O OUTRO</a>
                     </div>
                 </td>
             </tr>

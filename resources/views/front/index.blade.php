@@ -14,13 +14,15 @@
         </tr>
     </thead>
     <tbody>
+        <input id="txtTamanho" type="hidden" value="{{ count($estoque) }}">
         @foreach($estoque as $inventario)
             <tr class="d-flex justify-content-around">
-                <td class="col-1 p-0">NULL</td>
+                <input id="txtItem{{$inventario->id_item}}" type="hidden" value="{{$inventario->item}}">
+                <td id="txtImagem" class="col-1 p-0">
+                    <img id="imagem" src="" style="max-width: 50px; max-height: 50px;">
+                </td>
                 <td class="col-2 p-0"><span class="text-sm">{{ $inventario['nome'] }}</span></td>
                 <td class="col-2 p-0"><span>{{$inventario['quantidade']}}</span></td>
-                {{-- quantidade troca para estoque --}}
-                {{-- DIFERENCIRA OS REQ --}}
                 <td id="txtRecomendavel{{ $inventario->id_item }}" class="col-2 p-0">0</td>
                 <td id="txtMedia{{ $inventario->id_item }}" class="col-2 p-0"></td>
                 <td class="col-3 d-flex p-0">
@@ -29,7 +31,6 @@
                     </div>
                     <div class="col-6 m-1">
                         <button class="btn btn-warning rounded-0 btn-req" id="txtReq{{$inventario->id_item}}" data-item="{{$inventario->item}}" onclick="fetchWarframeMarketData(this)">REQ</button>
-                        {{-- <button class="btn btn-warning rounded-0 " name="txtReq" value="{{$inventario->item_vendido}}" onclick="console.log('Item:', '{{$inventario->item_vendido}}'); fetchWarframeMarketData('{{$inventario->item_vendido}}')">REQ</button> --}}
                     </div>
                 </td>
             </tr>
@@ -43,6 +44,91 @@
             if($('#errors').val()){
                 $('#modal-venda').modal('show');
             }
+            var plataforma = $("#txtPlataforma").val();
+            var item = [];
+            var tamanho = parseInt($('#txtTamanho').val()) + 1;
+            for(var i = 1; i < tamanho; i++){
+                item.push($('#txtItem'+i).val());
+            }
+
+            var filename = 'systems.webp';
+            $.ajax({
+                url: '/storage/' + filename,
+                method: 'GET',
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function(data) {
+                    console.log('AJAX success');
+                    var imageUrl;
+                    var tamanho = parseInt($("#txtTamanho").val());
+                    var name = [];
+                    for (var i = 0; i < tamanho; i++) {
+                        name.push($('#txtItem' + (i + 1)).val());
+                        console.log('Item name:', name[i]);
+                        if (name[i].indexOf('systems') !== -1) {
+                            imageUrl = '/storage/systems.webp';
+                        } else if (name[i].indexOf('blueprint') !== -1) {
+                            imageUrl = '/storage/blueprint.webp';
+                        } else if (name[i].indexOf('neuroptics') !== -1) {
+                            imageUrl = '/storage/helmet.webp';
+                        } else if (name[i].indexOf('chassis') !== -1) {
+                            imageUrl = '/storage/chassis.webp';
+                        }
+                        $('#tabelaInventario tbody tr:eq(' + i + ') #imagem').attr('src', imageUrl);
+                    }
+                    
+                },
+                error: function(xhr, status, error) {
+                    // Se ocorrer algum erro na requisição, exibir uma mensagem de erro
+                    console.error('Erro ao carregar imagem:', status, error);
+                }
+            });
+
+
+
+
+
+
+
+            // $.ajax({
+            //     url:'/fetch-warframe-img/' + plataforma + '/' + item,
+            //     type: 'GET',
+            //     data: { 
+            //         plataforma: plataforma,
+            //         item: item
+            //     },
+            //     success: function(dados) {
+            //         console.log(dados);
+            //         dados.forEach(function(url, index) {
+            //             // Cria um novo elemento de imagem
+            //             var img = document.createElement('img');
+                        
+            //             // Atribui o URL da imagem ao atributo src
+            //             img.src = url;
+                        
+            //             // Adiciona a classe se desejar (opcional)
+            //             img.className = 'imagem-warframe';
+                        
+            //             // Encontra o elemento td correspondente à coluna de imagem pelo identificador único (id)
+            //             var tdImagem = document.getElementById('txtImagem' + index); // Removi o parêntese extra nesta linha
+                                
+            //             // Verifica se o elemento td foi encontrado antes de tentar adicionar a imagem
+            //             if (tdImagem) {
+            //                 // Limpa o conteúdo anterior da célula de imagem
+            //                 tdImagem.innerHTML = '';
+                            
+            //                 // Adiciona a imagem ao elemento td
+            //                 tdImagem.appendChild(img);
+            //             } else {
+            //                 console.error('Elemento de imagem não encontrado para o índice ' + index);
+            //             }
+            //         });
+            //     },
+            //     error: function(error) {
+            //         console.error(error);
+            //     }
+            // });
         });
         function selecionado(id) {
             $.ajax({

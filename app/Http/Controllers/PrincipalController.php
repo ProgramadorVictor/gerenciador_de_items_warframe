@@ -12,7 +12,7 @@ class PrincipalController extends Controller
 {
     public function index(){
         $itens = ItensModel::all();
-        $estoque = InventarioItensModel::all(); 
+        $estoque = InventarioItensModel::all();
         return view('front.index', ['itens' => $itens, 'estoque' => $estoque]);
     }
 

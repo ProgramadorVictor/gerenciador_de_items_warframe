@@ -21,31 +21,6 @@
                     <label for="preco" class="fw-bolder col-12">Preço: <span class="text-sm">(Qual o preço a ser vendido?)</span></label>
                     <input class="col-12 ps-2" type="text" id="preco" name="preco" value="{{old('preco')}}" placeholder="Recomendamos 30 por unidade. (Fazer alteração com JS)">
                     <span class="text-danger">{{$errors->has('preco') ? $errors->first('preco') : ''}}</span>
-                    <table class="col-12 table my-2">
-                        <thead>
-                            <tr class="d-flex justify-content-between">
-                                <th class="col-1 text-sm p-0"></th>
-                                <th class="col-2 text-sm p-0">COMPRA</th>
-                                <th class="col-2 text-sm p-0">MENOR</th>
-                                <th class="col-2 text-sm p-0">MÉDIA</th>
-                                <th class="col-2 text-sm p-0">MAIOR</th>
-                                <th class="col-2 text-sm p-0">LUCRO</th>
-                                <th class="col-1 text-sm p-0"></th>
-                            </tr>
-                        <tbody>
-                            <tr class="d-flex justify-content-between">
-                                <td class="col-1 text-sm p-0"></td>
-                                <td class="col-2 text-sm p-0" id="txtRecomendavelModal"></td>
-                                {{-- DESCOBRIR COMO PASSA O ID, PARA PERSISTIR OS VALORES CORRETAMENTE, EM CADA MODAL --}}
-                                <td class="col-2 text-sm p-0" id="txtMediaModal"></td>
-                                {{-- OS DADOS TEM QUE PERSISTIR AQUI TAMBÉM --}}
-                                <td class="col-2 text-sm p-0"></td>
-                                <td class="col-2 text-sm p-0"></td>
-                                <td class="col-2 text-sm p-0"></td>
-                                <td class="col-1 text-sm p-0"></td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">FECHAR</button>
